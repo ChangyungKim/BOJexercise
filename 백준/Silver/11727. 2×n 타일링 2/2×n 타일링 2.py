@@ -1,9 +1,10 @@
 import sys
 n=int(sys.stdin.readline().rstrip())
-lst=[0]*1001
-lst[0]=0
-lst[1]=1
-lst[2]=3
+dp=[0]*1001
+dp[1]=1
+dp[2]=3
+dp[3]=5
+dp[4]=11
 for i in range(3,n+1):
-    lst[i]=(lst[i-1]+2*(lst[i-2]))%10007
-print(lst[n])
+    dp[i]=dp[i-1]+2*dp[i-2]
+print(dp[n]%10007)
