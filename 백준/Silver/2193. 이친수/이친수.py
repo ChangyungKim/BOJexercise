@@ -1,6 +1,8 @@
 import sys
-N=int(sys.stdin.readline().rstrip())
-lst=[0,1,1]
-for i in range(3,91):
-    lst.append(lst[i-1]+lst[i-2])
-print(lst[N])
+T=int(sys.stdin.readline().rstrip())
+dp=[0]*91
+dp[1]=1
+dp[2]=1
+for i in range(2,T+1):
+    dp[i]=dp[i-1]+dp[i-2]
+print(dp[T])
