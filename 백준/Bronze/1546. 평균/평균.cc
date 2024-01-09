@@ -1,22 +1,23 @@
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
-int main() {
+
+int main()
+{
     int N;
     cin>>N;
-    double*score=new double[N];
+    int A[N];
+    double sum=0;
     for(int i=0;i<N;i++){
-        cin>>score[i];
+        cin>>A[i];
     }
-    double result=0;
-    int mx=*(max_element(score, score+N));
+    int max=0;
     for(int i=0;i<N;i++){
-        score[i]=score[i]/mx*100;
+        if(max<A[i]){
+            max=A[i];
+        }
+        sum+=A[i];
     }
-    for(int i=0;i<N;i++){
-        result+=score[i];
-    }
-    cout<<result/N;
-
+    double avg=sum*100/max/N;
+    cout<<avg;
 }
